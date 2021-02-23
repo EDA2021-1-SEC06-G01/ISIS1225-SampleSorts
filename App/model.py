@@ -188,7 +188,17 @@ def compareauthors(authorname1, author):
 
 
 def compareratings(book1, book2):
-    return (float(book1['average_rating']) < float(book2['average_rating']))
+    #Comparar primero por average_rating 
+    #Si son iguales, comparar por original_publication_year
+    if float(book1['average_rating']) > float(book2['average_rating']):
+        return True
+    elif float(book1['average_rating']) < float(book2['average_rating']):
+        return False
+    else:
+        if float(book1['original_publication_year']) < float(book2['original_publication_year']):
+            return True
+        else:
+            False
 
 
 def comparetagnames(name, tag):
